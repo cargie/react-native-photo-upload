@@ -19,7 +19,8 @@ export default class PhotoUpload extends React.Component {
     width: PropTypes.number,
     format: PropTypes.string,
     quality: PropTypes.number,
-    onPhotoSelect: PropTypes.func // returns the base64 string of uploaded photo
+    onPhotoSelect: PropTypes.func, // returns the base64 string of uploaded photo
+    onPhotoChange: PropTypes.func
   }
 
   state = {
@@ -77,6 +78,7 @@ export default class PhotoUpload extends React.Component {
       // handle photo in props functions as data string
       if (this.props.onPhotoSelect) {
         this.props.onPhotoSelect(photoData)
+        this.props.onPhotoChange(response)
       }
     })
   }
